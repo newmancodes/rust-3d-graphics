@@ -9,5 +9,5 @@ extern "C" {
 
 #[wasm_bindgen]
 pub fn say_hello_from_rust() {
-    log("Hello World!... from rust");
+    log("Hello, World!... from rust");
 }
