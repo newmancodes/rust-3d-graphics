@@ -28,3 +28,13 @@ jobs:
       with:
         command: check
     - run: npm run build --if-present
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_CLI_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_CLI_ACCESSKEY }}
+        aws-region: eu-west-1
+    - name: Remove old version from bucket
+      run: aws s3 rm s3://rust-3d-graphics --recursive
+    - name: Copy new version to bucket
+      run: aws s3 cp ./dist s3://rust-3d-graphics --recursive
