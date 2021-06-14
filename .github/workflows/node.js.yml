@@ -22,7 +22,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - uses: actions-rs/toolchain@v1
+    - name: Install Rust Toolchain
+      uses: actions-rs/toolchain@v1
       with:
         target: wasm32-unknown-unknown
     - run: npm run build --if-present
