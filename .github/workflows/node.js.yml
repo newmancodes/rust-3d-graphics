@@ -26,4 +26,9 @@ jobs:
       uses: actions-rs/toolchain@v1
       with:
         target: wasm32-unknown-unknown
+    - name: Run cargo check
+      uses: actions-rs/cargo@v1
+      with:
+        command: check
+    - run: npm ci
     - run: npm run build --if-present
