@@ -31,5 +31,4 @@ jobs:
       uses: actions-rs/cargo@v1
       with:
         command: check
-    - run: npm ci
     - run: npm run build --if-present
